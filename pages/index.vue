@@ -1,73 +1,68 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        jacobtan-web
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div id="app">
+    <app-header />
+      <app-body />
+    <app-footer />
   </div>
 </template>
 
 <script>
-export default {}
+import Header from '@/sections/Header'
+import Footer from '@/sections/Footer'
+
+import Body from '@/sections/Body'
+
+export default {
+  name: 'App',
+  components: {
+    'app-header': Header,
+    'app-footer': Footer,
+    'app-body': Body
+  }
+}
+
+if(process.client) {
+  var WebFont = require('webfontloader')
+
+  WebFont.load({
+    google: {
+      families: ['Fira Sans', 'Roboto']
+    }
+  })
+}
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+<style lang='scss'>
+#app {
+  $max-width: 960px;
+
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  color: #1A535C;
+  margin-top: 60px;
+  // width: $max-width;
+  max-width: 100%;
+
+  margin: 0 auto;
+
+  box-sizing: border-box;
 }
 
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+body {
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+html,body {
+  height: 100%;
 }
 
-.links {
-  padding-top: 15px;
+header{
+  font-family: 'GFS Didot', serif;
 }
 </style>

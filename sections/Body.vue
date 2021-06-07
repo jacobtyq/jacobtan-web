@@ -1,11 +1,11 @@
 <template>
     <div>
         <section class="body">
-            <app-hero></app-hero>
+            <app-hero />
             <h4 class="header-title">Latest Posts</h4>
-            <app-post></app-post>
+            <app-post />
             <h4 class="header-title">Past Projects</h4>
-            <app-cards></app-cards>
+            <app-cards />
         </section>
     </div>
 </template>
